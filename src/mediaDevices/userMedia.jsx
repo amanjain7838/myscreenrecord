@@ -5,7 +5,7 @@ const aquireUserMedia=async(constraints)=>{
     }
     catch(err){
         console.log(err);
-        return err;
+        return {'code':0,'message':err};
     }
 }
 

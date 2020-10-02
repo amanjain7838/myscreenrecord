@@ -1,5 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import RecordingContext from '../../context/recordingContext';
+import videojs from 'video.js';
+
 const download=(url)=>{
     console.log(url)
     var a = document.createElement("a");
@@ -13,9 +15,26 @@ const download=(url)=>{
 
 const Preview = props =>{
     const recordingContext=useContext(RecordingContext);
+    let videoRef = useRef();
+    useEffect(()=>{
+        let playerconfig={
+            autoplay: true,
+            width:500,
+            height:500,
+            controls: true,
+            sources: [{
+                src: recordingContext.recordingList,
+                type: 'video/mp4'
+            }]
+        };
+        videojs(videoRef, playerconfig);
+    },[recordingContext.recordingList]);
+
     return (
         <React.Fragment>
-            <video src={recordingContext.recordingList}></video>
+            <div data-vjs-player>
+                <video ref={node => videoRef = node} className="video-js"></video>
+            </div>
             <button onClick={()=>download(recordingContext.recordingList)}>Download</button>
         </React.Fragment>
     );

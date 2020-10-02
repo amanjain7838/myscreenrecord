@@ -5,7 +5,7 @@ const aquireUserDisplayMedia=async(constraints)=>{
     }
     catch(err){
         console.log(err);
-        return err;
+        return {'code':0,'message':err};
     }
 }
 export default aquireUserDisplayMedia;

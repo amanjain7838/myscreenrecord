@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef } from 'react';
 import SettingContext from '../../context/settingContext';
 import RecordingContext from '../../context/recordingContext';
 import RecordPanel from './recordPanel';
