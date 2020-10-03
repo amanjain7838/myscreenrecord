@@ -18,9 +18,7 @@ const Preview = props =>{
     let videoRef = useRef();
     useEffect(()=>{
         let playerconfig={
-            autoplay: true,
-            width:500,
-            height:500,
+            fluid: true,
             controls: true,
             sources: [{
                 src: recordingContext.recordingList,
@@ -31,12 +29,30 @@ const Preview = props =>{
     },[recordingContext.recordingList]);
 
     return (
-        <React.Fragment>
-            <div data-vjs-player>
-                <video ref={node => videoRef = node} className="video-js"></video>
+        <div className="container  text-center text-muted">
+            <div className="row">
+                <div className="col">
+                    <div className="logo">
+                        <h4>Download Video</h4>
+                    </div>
+                </div>
             </div>
-            <button onClick={()=>download(recordingContext.recordingList)}>Download</button>
-        </React.Fragment>
+            <div className="row justify-content-center">
+                <div className="col-md-5">
+                    <div data-vjs-player>
+                        <video ref={node => videoRef = node} className="video-js"></video>
+                    </div>
+                </div>
+            </div>
+            <div className="row justify-content-center mt-5">
+                <div className="col-md-2">
+                    <button className="btn btn-outline-info btn-block" onClick={()=>recordingContext.setRecordingList('')}>Cancel</button>
+                </div>
+                <div className="col-md-2">
+                    <button className="btn btn-info btn-block" onClick={()=>download(recordingContext.recordingList)}>Download</button>
+                </div>
+            </div>
+        </div>
     );
 }
 export default Preview;

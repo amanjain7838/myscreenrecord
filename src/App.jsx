@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/home';
 import { Route,Switch,BrowserRouter } from 'react-router-dom';
 import RecordSetup from './components/record/recordSetup';
@@ -8,13 +8,14 @@ import RecordingContext from './context/recordingContext';
 import 'video.js/dist/video-js.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import './App.css';
 
 function App() {
-  const [appSettings, setAppSettings]=useState({recordingStatus:0,recordLayoutRef:'screen'});
+  const [appSettings, setAppSettings]=useState({recordingStatus:0,recordLayoutRef:'Screen'});
   const [recordingList, setRecordingList]=useState('');
   const appSetting={appSettings, setAppSettings};
   const showtoast=(options)=>{
-    let {alert}=toast;
+    let alert;
     switch(options.type){
       case 'error':
         alert=toast.error;
@@ -28,8 +29,8 @@ function App() {
       case 'warn':
         alert=toast.warn;
         break;
-      case 'warn':
-        alert=toast.warn;
+      default:
+        alert=toast;
         break;
     }
       alert(options.message,options.option)

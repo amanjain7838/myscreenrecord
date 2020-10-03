@@ -17,17 +17,26 @@ const RecordPanel = props =>{
     const startRecording=async()=>{
         const recordLayoutRef=settingContext.appSettings.recordLayoutRef;
         let userScreenMediaStream;
+        let playerconfig={
+            autoplay: true,
+            controls: false,
+            muted:true,
+            fluid: true,
+            liveui:true,
+            liveTracker:false
+        };
+        videoPlayerRef=videojs(videoRef, playerconfig);
         switch(recordLayoutRef){
-            case 'camera':
+            case 'Camera':
                 userScreenMediaStream=await aquireUserMedia({video:true,audio:true});
                 break;
-            case 'duo':
+            case 'Camera + Screen':
                 userScreenMediaStream=await aquireMixDisplayMedia({video:true,audio:true});
                 break;
             default:
-                userScreenMediaStream=await aquireUserDisplayMedia({video:true,audio:true});
+                userScreenMediaStream=await aquireUserDisplayMedia({video:{cursor:"always"},audio:{echoCancellation:!0,noiseSuppression:!0}});
         }
-        if(userScreenMediaStream.code==0){
+        if(userScreenMediaStream.code === 0){
             settingContext.setAppSettings({...settingContext.appSettings,'recordingStatus':0});
             recordingContext.showtoast({'type':'error','message':String(userScreenMediaStream.message),'option':{
                 position: "top-right",
@@ -41,16 +50,6 @@ const RecordPanel = props =>{
         }
         let finalRecordStream=userScreenMediaStream;
         finalMediaStream.current=finalRecordStream;
-        let playerconfig={
-            autoplay: true,
-            controls: false,
-            muted:true,
-            width:250,
-            height:250,
-            liveui:true,
-            liveTracker:false
-        };
-        videoPlayerRef=videojs(videoRef, playerconfig);
         videoRef.srcObject=finalRecordStream;
         let options = {mimeType: 'video/mp4;codecs=vp8,opus'};
         if (!MediaRecorder.isTypeSupported(options.mimeType)) {
@@ -69,7 +68,7 @@ const RecordPanel = props =>{
     }
     useEffect(()=>{
         startRecording();
-    },[]);
+    });
     const handleCanPlay=()=>videoPlayerRef.play()
     const stopRecording=()=>{
         mediaRecorder.current.stop();
@@ -96,13 +95,27 @@ const RecordPanel = props =>{
         // download(url);
     }
     return (
-        <div className="preview">
-            <div data-vjs-player>
-                <video ref={node => videoRef = node} onCanPlay={handleCanPlay} className="video-js" />
+        <div className="container  text-center text-muted">
+            {settingContext.appSettings.recordingStatus === 1 && <div className="row">
+                <div className="col">
+                    <div className="logo">
+                        <h4>Recording in progress</h4>
+                    </div>
+                </div>
+            </div>}
+            <div className="row justify-content-center">
+                <div className="col-md-5">
+                        <div data-vjs-player>
+                            <video ref={node => videoRef = node} onCanPlay={handleCanPlay} className="video-js" />
+                        </div>
+                </div>
             </div>
-            {settingContext.appSettings.recordingStatus === 1 && <button onClick={()=>stopRecording()}>Stop Recording</button>}
+            {settingContext.appSettings.recordingStatus === 1 && <div className="row justify-content-center">
+                <div className="col-md-2 mt-5">
+                <button className="btn btn-info btn-block" onClick={()=>stopRecording()}>Stop Recording</button>
+                </div>
+            </div>}
         </div>
-
     );
 }
 export default RecordPanel;

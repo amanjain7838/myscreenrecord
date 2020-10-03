@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  letter-spacing: -.1rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+.screencam-selector .btn {
+  -moz-box-align: center;
+  align-items: center;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  flex-direction: column;
+  display: -moz-inline-box;
+  display: inline-flex;
+  cursor: pointer;
+  margin: 10px 30px;
+  color: #6d6d6d;
+}
+.screencam-selector .btn.active, .screencam-selector>div:hover{
+    color: #9b4dca;
+}
+.screencam-selector .btn.active span {
+  font-weight: 700;
+}
+.vjs-big-play-button{
+  top: 42% !important;
+  left: 40% !important;
+}
