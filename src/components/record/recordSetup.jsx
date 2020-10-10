@@ -38,7 +38,6 @@ const RecordSetup = props =>{
                 </div>
                 <div className="row justify-content-center  mt-4">
                     <div className="col-md-2">
-                        <button onClick={methodDoesNotExist}>adasdasd</button>
                         <Link to="/" className="btn btn-outline-info btn-block">Cancel</Link>
                     </div>
                     <div className="col-md-2">
