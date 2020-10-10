@@ -11,16 +11,16 @@ import { Integrations } from "@sentry/tracing";
 // import { fab } from '@fortawesome/free-brands-svg-icons';
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
 // library.add(fab, faCheckSquare, faCoffee)
-Sentry.init({
-  dsn: "https://efbb2ce497ee4ffd8112a25f28ff6c17@o459682.ingest.sentry.io/5459162",
-  integrations: [
-    new Integrations.BrowserTracing(),
-  ],
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({
+    dsn: process.env.REACT_APP_SENTRY_DSN,
+    integrations: [
+      new Integrations.BrowserTracing(),
+    ],
+    tracesSampleRate: 1.0,
+  });
+}
 
-  // We recommend adjusting this value in production, or using tracesSampler
-  // for finer control
-  tracesSampleRate: 1.0,
-});
 ReactDOM.render(
   <React.StrictMode>
     <App />
