@@ -8,7 +8,7 @@ const download=(url)=>{
     a.style = "display: none";
     document.body.appendChild(a);
     a.href = url;
-    a.download = "test.mp4";
+    a.download = "myscreenrecording.mp4";
     a.click();
     // window.URL.revokeObjectURL(url);
 }
