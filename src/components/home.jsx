@@ -10,7 +10,7 @@ const Home = props =>{
                     <div className="logo">
                         <center>
                             <img alt="logo" width="70" src="images/logo.png"/>
-                            <h1>MyScreenRecord<small>.in</small></h1>
+                            <h1>MyScreenRecord</h1>
                             <h4 className="font-weight-light">Record your screen right from the browser.<br/>No installation required.</h4>
                         </center>
                     </div>
