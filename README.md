@@ -16,7 +16,7 @@
 	<img src="https://media.giphy.com/media/QzP3hYVsK4pktMDZTc/giphy.gif"/ height=300><br>
 
 </h6>
-<h2 align="center"><a href="https://myscreenrecord.herokuapp.com/" targer="_blank">Demo</a></h2>
+<h2 align="center"><a href="https://myscreenrecord.herokuapp.com/" target="_blank">Demo</a></h2>
 
 
 ## Description
