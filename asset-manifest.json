@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/myscreenrecord/static/css/main.5781d6d9.chunk.css",
+    "main.js": "/myscreenrecord/static/js/main.60d5ab02.chunk.js",
+    "runtime-main.js": "/myscreenrecord/static/js/runtime-main.1ea28548.js",
+    "static/css/2.ab33dd16.chunk.css": "/myscreenrecord/static/css/2.ab33dd16.chunk.css",
+    "static/js/2.91dc7d39.chunk.js": "/myscreenrecord/static/js/2.91dc7d39.chunk.js",
+    "index.html": "/myscreenrecord/index.html",
+    "precache-manifest.f8dc2f78770e1329b984e94ebb31485d.js": "/myscreenrecord/precache-manifest.f8dc2f78770e1329b984e94ebb31485d.js",
+    "service-worker.js": "/myscreenrecord/service-worker.js",
+    "static/js/2.91dc7d39.chunk.js.LICENSE.txt": "/myscreenrecord/static/js/2.91dc7d39.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ea28548.js",
+    "static/css/2.ab33dd16.chunk.css",
+    "static/js/2.91dc7d39.chunk.js",
+    "static/css/main.5781d6d9.chunk.css",
+    "static/js/main.60d5ab02.chunk.js"
+  ]
+}
