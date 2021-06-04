@@ -11,9 +11,8 @@
   <img src="https://img.shields.io/github/stars/amanjain7838/myscreenrecord">
   <img src="https://img.shields.io/github/languages/top/amanjain7838/myscreenrecord.svg">
   <img src="https://img.shields.io/github/issues/amanjain7838/myscreenrecord.svg">
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat">
-	<img src="https://hits.dwyl.com/amanjain7838/myscreenrecord.svg"><br>
-	<img src="https://media.giphy.com/media/QzP3hYVsK4pktMDZTc/giphy.gif"/ height=300><br>
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"><br>
+<img src="https://media.giphy.com/media/QzP3hYVsK4pktMDZTc/giphy.gif" height=300><br>
 
 </h6>
 <h2 align="center"><a href="https://myscreenrecord.herokuapp.com/" target="_blank">Demo</a></h2>
